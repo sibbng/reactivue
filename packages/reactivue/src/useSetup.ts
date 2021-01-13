@@ -11,6 +11,8 @@ export function useSetup<State extends Record<any, any>, Props = {}>(
   ReactProps?: Props,
 ): UnwrapRef<State> {
   const [id] = useState(getNewInstanceId)
+  console.log('ID ON RENDER', id)
+
   const setTick = useState(0)[1]
 
   const createState = () => {
@@ -52,6 +54,7 @@ export function useSetup<State extends Record<any, any>, Props = {}>(
 
   // trigger React re-render on data changes
   useEffect(() => {
+    console.log('ID ON MOUNT', id)
     /**
      * Invalidate setup after hmr updates
      */

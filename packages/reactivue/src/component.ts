@@ -44,6 +44,8 @@ export const useInstanceScope = (id: number, cb: (instance: InternalInstanceStat
 }
 
 export const unmountInstance = (id: number) => {
+  console.log('INSTANCES BEFORE UNMOUNT', _vueState)
+
   _vueState[id].isUnmounting = true
 
   const unmount = async() => {
@@ -61,6 +63,7 @@ export const unmountInstance = (id: number) => {
 
     // release the ref
     delete _vueState[id]
+    console.log('INSTANCES AFTER UNMOUNT', _vueState)
   }
 
   /**
