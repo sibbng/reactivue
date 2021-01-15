@@ -8,10 +8,6 @@ module.exports = {
     ],
   },
   theme: {
-    extend: {
-      opacity: {
-        10: '0.1',
-      },
-    },
+    extend: {},
   },
 }
